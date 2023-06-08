@@ -1,0 +1,17 @@
+.weather__container {
+  position: relative;
+}
+
+.weather__info {
+  color: #fff;
+  font-size: 36px;
+  line-height: 40px;
+  position: absolute;
+  margin: 0;
+  left: 3vh;
+  top: 3vh;
+}
+
+.weather__image {
+  width: 100%;
+}

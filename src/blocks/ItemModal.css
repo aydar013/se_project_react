@@ -1,0 +1,35 @@
+.modal__container {
+  max-width: 498px;
+  max-height: 610px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__card-close {
+  background: transparent url(../images/close-button2.svg) no-repeat center;
+
+  top: 30px;
+  right: 30px;
+}
+
+.modal__card-image {
+  max-width: 498px;
+  max-height: 498px;
+  border-radius: 16px 16px 0 0;
+  object-fit: cover;
+}
+
+.modal__card-info {
+  min-height: 112px;
+  background-color: white;
+  border-radius: 0 0 16px 16px;
+}
+
+.modal__card-name {
+  margin: 20px 0 0 32px;
+}
+
+.modal__card-weather {
+  margin: 12px 0 0 32px;
+}

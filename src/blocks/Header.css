@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1360px;
+  max-height: 100px;
+  height: 100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.header__logo {
+  display: flex;
+  padding: 0;
+  /* margin-left: 40px; */
+  gap: 24px;
+  align-items: center;
+}
+
+.header__avatar {
+  display: flex;
+  padding: 0;
+  /* margin-right: 40px; */
+  align-items: center;
+  gap: 12px;
+}
+
+.header__logo-picture {
+  width: 89px;
+  height: 40px;
+}
+
+.header__add-button {
+  cursor: pointer;
+  margin-right: 8px;
+  border: none;
+  background-color: #fff;
+}
+
+.header__avatar-picture {
+  width: 40px;
+  height: 40px;
+}

@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Cabinet Grotesk";
+  font-weight: 500;
+  font-style: normal;
+  src: url(./CabinetGrotesk-Medium.woff) format("woff"),
+    url(./CabinetGrotesk-Medium.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  font-weight: 700;
+  font-style: normal;
+  src: url(./CabinetGrotesk-Bold.woff) format("woff"),
+    url(./CabinetGrotesk-Bold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  font-weight: 900;
+  font-style: normal;
+  src: url(./CabinetGrotesk-Extrabold.woff) format("woff"),
+    url(./CabinetGrotesk-Extrabold.woff2) format("woff2");
+}
