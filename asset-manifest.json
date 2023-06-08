@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/%7Bse_project_react%7D/static/css/main.c78785da.css",
+    "main.js": "/%7Bse_project_react%7D/static/js/main.d77b69c0.js",
+    "static/js/787.79f92504.chunk.js": "/%7Bse_project_react%7D/static/js/787.79f92504.chunk.js",
+    "static/media/avatar.svg": "/%7Bse_project_react%7D/static/media/avatar.2a1e98281733f51976ac0c35c04f210e.svg",
+    "static/media/day-snowy.svg": "/%7Bse_project_react%7D/static/media/day-snowy.a5bb7441280cef64ae081acadb7d6e66.svg",
+    "static/media/night-snowy.svg": "/%7Bse_project_react%7D/static/media/night-snowy.20a89d711249712380ea9f4269b386a3.svg",
+    "static/media/day-stormy.svg": "/%7Bse_project_react%7D/static/media/day-stormy.51c68e175fd385c6055462b91d462bd5.svg",
+    "static/media/night-stormy.svg": "/%7Bse_project_react%7D/static/media/night-stormy.b98983c750d3f283a9267efc3c3fd940.svg",
+    "static/media/day-rainy.svg": "/%7Bse_project_react%7D/static/media/day-rainy.8fd968acf8cb57624e2a990b324c1278.svg",
+    "static/media/night-rainy.svg": "/%7Bse_project_react%7D/static/media/night-rainy.ebe0301b9856c6c8564df5c8beea1ac8.svg",
+    "static/media/day-foggy.svg": "/%7Bse_project_react%7D/static/media/day-foggy.8ad4efe699a8e3a16ae0220f3b5a3d48.svg",
+    "static/media/night-foggy.svg": "/%7Bse_project_react%7D/static/media/night-foggy.cee462810b2a7c8696b7701170241a66.svg",
+    "static/media/logo.svg": "/%7Bse_project_react%7D/static/media/logo.e6922bf0cc65fda664069a7fb7bb200c.svg",
+    "static/media/night-cloudy.svg": "/%7Bse_project_react%7D/static/media/night-cloudy.c52565b10982a97a5a67275442bd12ee.svg",
+    "static/media/day-cloudy.svg": "/%7Bse_project_react%7D/static/media/day-cloudy.afb98af2bd43d3a2a330e655695bd2c9.svg",
+    "static/media/Union.svg": "/%7Bse_project_react%7D/static/media/Union.5041c8cbf1275be14ac1.svg",
+    "static/media/close-button2.svg": "/%7Bse_project_react%7D/static/media/close-button2.33bc5353dc8c138372ed.svg",
+    "index.html": "/%7Bse_project_react%7D/index.html",
+    "static/media/day-sunny.svg": "/%7Bse_project_react%7D/static/media/day-sunny.1c3ffd02d92146a2673939be89b88d54.svg",
+    "static/media/night-moon.svg": "/%7Bse_project_react%7D/static/media/night-moon.ae0e6bbe1e0bfc883f3ba207396bf3b4.svg",
+    "main.c78785da.css.map": "/%7Bse_project_react%7D/static/css/main.c78785da.css.map",
+    "main.d77b69c0.js.map": "/%7Bse_project_react%7D/static/js/main.d77b69c0.js.map",
+    "787.79f92504.chunk.js.map": "/%7Bse_project_react%7D/static/js/787.79f92504.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c78785da.css",
+    "static/js/main.d77b69c0.js"
+  ]
+}
