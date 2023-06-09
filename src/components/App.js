@@ -28,13 +28,15 @@ function App() {
     setSelectedCard(card);
   };
 
-  console.log(selectedCard);
-
   useEffect(() => {
-    getForecastWeather().then((data) => {
-      const temperature = parseWeatherData(data);
-      setTemp(temperature);
-    });
+    getForecastWeather()
+      .then((data) => {
+        const temperature = parseWeatherData(data);
+        setTemp(temperature);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
