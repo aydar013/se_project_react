@@ -6,10 +6,6 @@ import ItemCard from "./ItemCard";
 import "../blocks/ItemCard.css";
 
 const Profile = ({ clothingItems, onSelectCard, onCreateModal }) => {
-  // const handleCardClick = (item) => {
-  //   onSelectCard(item);
-  //   console.log("Selected item:", item);
-  // };
   return (
     <div className="profile">
       <div className="profile__sidebar">

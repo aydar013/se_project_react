@@ -29,17 +29,12 @@ function App() {
     setActiveModal("");
   };
 
-  // useEffect(() => {
-  //   const closeByEsc = (e) => {
-  //     if (e.key === "Escape") {
-  //       handleCloseModal();
-  //     }
-
-  //     document.addEventListener("keyup", closeByEsc);
-
-  //     return () => document.addEventListener("keyup", closeByEsc);
-  //   };
-  // }, []);
+  useEffect(() => {
+    api.itemsApi().then((res) => {
+      console.log(res);
+      setClothingItems(res);
+    });
+  }, []);
 
   const handleSelectedCard = (card) => {
     setActiveModal("preview");
@@ -71,14 +66,12 @@ function App() {
   };
 
   const handleDeleteItem = (item) => {
-    console.log(item);
     api
       .deleteItem(item.id)
       .then(() => {
         const filteredCard = clothingItems.filter(
           (card) => card.id !== item.id
         );
-        console.log(filteredCard);
         setClothingItems(filteredCard);
         handleCloseModal();
       })

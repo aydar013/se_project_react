@@ -1,19 +1,22 @@
 {
-  "posts": [
+  "items": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "name": "newwww",
+      "link": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1280px-Image_created_with_a_mobile_phone.png",
+      "weather": "hot",
+      "id": 20
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "newwwwnewwww",
+      "link": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1280px-Image_created_with_a_mobile_phone.png",
+      "weather": "warm",
+      "id": 21
+    },
+    {
+      "name": "other",
+      "link": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1280px-Image_created_with_a_mobile_phone.png",
+      "weather": "warm",
+      "id": 22
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

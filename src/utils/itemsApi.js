@@ -1,6 +1,6 @@
 import { checkResponse } from "./checkResponse";
 
-const baseUrl = "https://my-json-server.typicode.com/aydar013/se_project_react";
+const baseUrl = "http://localhost:3001";
 
 const itemsApi = () => {
   return fetch(`${baseUrl}/items`, {
@@ -12,7 +12,6 @@ const itemsApi = () => {
 };
 
 const addItem = ({ name, link, weather }) => {
-  console.log(weather);
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
@@ -27,7 +26,6 @@ const addItem = ({ name, link, weather }) => {
 };
 
 const deleteItem = (id) => {
-  console.log(id);
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: {
