@@ -1,4 +1,3 @@
-import "../blocks/ItemCard.css";
 import React from "react";
 
 const ItemCard = ({ item, onSelectCard }) => {

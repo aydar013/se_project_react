@@ -1,0 +1,13 @@
+.clothes {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  padding: 33px 0 0 0;
+}
+
+.clothes__button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.6);
+}

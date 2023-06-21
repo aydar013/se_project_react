@@ -1,4 +1,3 @@
-import React from "react";
 import "../blocks/Footer.css";
 import { currentYear } from "../utils/components";
 

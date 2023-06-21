@@ -1,6 +1,7 @@
 import React from "react";
+import "../blocks/ItemModal.css";
 
-const ItemModal = ({ selectedCard, onClose }) => {
+const ItemModal = ({ selectedCard, onClose, onDelete }) => {
   return (
     <div className={"modal"}>
       <div className="modal__container">
@@ -8,16 +9,26 @@ const ItemModal = ({ selectedCard, onClose }) => {
           className="modal__close-button modal__card-close"
           type="button"
           onClick={onClose}
-        ></button>
+        />
         <img
           className="modal__card-image"
           src={selectedCard.link}
           alt={`Photo of ${selectedCard.name}`}
         />
         <div className="modal__card-info">
-          <div className="modal__card-name">{selectedCard.name}</div>
-          <div className="modal__card-weather">
-            Weather type: {selectedCard.weather}
+          <div>
+            <div className="modal__card-name">{selectedCard.name}</div>
+            <div className="modal__card-weather">
+              Weather type: {selectedCard.weather}
+            </div>
+          </div>
+          <div>
+            <div
+              className="modal__card-delete"
+              onClick={() => onDelete(selectedCard)}
+            >
+              Delete item
+            </div>
           </div>
         </div>
       </div>
