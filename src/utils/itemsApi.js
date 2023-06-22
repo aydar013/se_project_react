@@ -1,6 +1,6 @@
 import { checkResponse } from "./checkResponse";
 
-const baseUrl = "http://localhost:3001";
+const baseUrl = "https://my-json-server.typicode.com/aydar013/se_project_react";
 
 const itemsApi = () => {
   return fetch(`${baseUrl}/items`, {

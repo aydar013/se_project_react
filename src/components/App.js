@@ -31,7 +31,6 @@ function App() {
 
   useEffect(() => {
     api.itemsApi().then((res) => {
-      console.log(res);
       setClothingItems(res);
     });
   }, []);
@@ -56,7 +55,6 @@ function App() {
     api
       .addItem(newItem)
       .then((res) => {
-        console.log(res);
         setClothingItems([res, ...clothingItems]);
         handleCloseModal();
       })
