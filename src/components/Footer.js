@@ -1,5 +1,5 @@
 import "../blocks/Footer.css";
-import { currentYear } from "../utils/components";
+import { currentYear } from "../utils/constants";
 
 const Footer = () => {
   return (

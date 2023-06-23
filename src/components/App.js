@@ -8,9 +8,13 @@ import { useEffect, useState } from "react";
 import ItemModal from "./ItemModal";
 import { getForecastWeather, parseWeatherData } from "../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext";
-import { Switch, Route } from "react-router-dom/cjs/react-router-dom";
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+} from "react-router-dom/cjs/react-router-dom";
 import AddItemModal from "./AddItemModal";
-import { defaultClothingItems } from "../utils/components";
+import { defaultClothingItems } from "../utils/constants";
 import Profile from "./Profile";
 import api from "../utils/itemsApi";
 
@@ -29,11 +33,16 @@ function App() {
     setActiveModal("");
   };
 
-  useEffect(() => {
-    api.itemsApi().then((res) => {
-      setClothingItems(res);
-    });
-  }, []);
+  // useEffect(() => {
+  //   api
+  //     .itemsApi()
+  //     .then((res) => {
+  //       setClothingItems(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log("Error:", err);
+  //     });
+  // }, []);
 
   const handleSelectedCard = (card) => {
     setActiveModal("preview");
@@ -41,8 +50,7 @@ function App() {
   };
 
   const handleToggleSwitchChange = () => {
-    if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
-    if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
+    setCurrentTemperatureUnit(currentTemperatureUnit === "C" ? "F" : "C");
   };
 
   const handleAddItem = ({ name, link, weather }) => {
@@ -64,6 +72,8 @@ function App() {
   };
 
   const handleDeleteItem = (item) => {
+    console.log("DELETE ITEM", item);
+
     api
       .deleteItem(item.id)
       .then(() => {
@@ -90,7 +100,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <BrowserRouter>
       <div className="page">
         <div className="page__wrapper">
           <CurrentTemperatureUnitContext.Provider
@@ -131,7 +141,7 @@ function App() {
           </CurrentTemperatureUnitContext.Provider>
         </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 

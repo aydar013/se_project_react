@@ -3,7 +3,7 @@ import "../blocks/ItemModal.css";
 
 const ItemModal = ({ selectedCard, onClose, onDelete }) => {
   return (
-    <div className={"modal"}>
+    <div className="modal">
       <div className="modal__container">
         <button
           className="modal__close-button modal__card-close"
@@ -12,7 +12,7 @@ const ItemModal = ({ selectedCard, onClose, onDelete }) => {
         />
         <img
           className="modal__card-image"
-          src={selectedCard.link}
+          src={selectedCard.link || selectedCard.imageUrl}
           alt={`Photo of ${selectedCard.name}`}
         />
         <div className="modal__card-info">
@@ -24,8 +24,8 @@ const ItemModal = ({ selectedCard, onClose, onDelete }) => {
           </div>
           <div>
             <div
-              className="modal__card-delete"
               onClick={() => onDelete(selectedCard)}
+              className="modal__card-delete"
             >
               Delete item
             </div>

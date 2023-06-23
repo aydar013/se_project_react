@@ -7,6 +7,9 @@
   height: 100px;
   margin: 0 auto;
   padding: 0 40px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
 }
 
 .header__logo {
@@ -15,6 +18,15 @@
   /* margin-left: 40px; */
   gap: 24px;
   align-items: center;
+}
+
+.header__name {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.header__name:hover {
+  opacity: 0.5;
 }
 
 .header__avatar {
@@ -31,10 +43,17 @@
 }
 
 .header__add-button {
+  font-family: "Cabinet Grotesk";
   cursor: pointer;
   margin-right: 8px;
   border: none;
   background-color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.header__add-button:hover {
+  opacity: 0.5;
 }
 
 .header__avatar-picture {

@@ -13,6 +13,10 @@
   right: 30px;
 }
 
+.modal__card-close:hover {
+  opacity: 0.5;
+}
+
 .modal__card-image {
   max-width: 498px;
   max-height: 498px;

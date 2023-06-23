@@ -1,11 +1,17 @@
 .clothes {
+  font-family: "Cabinet Grotesk";
   display: flex;
   gap: 20px;
   justify-content: flex-start;
   padding: 33px 0 0 0;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .clothes__button {
+  font-family: "Cabinet Grotesk";
+  font-size: 20px;
+  font-weight: 700;
   border: none;
   background: none;
   cursor: pointer;

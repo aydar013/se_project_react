@@ -63,6 +63,10 @@
   cursor: pointer;
 }
 
+.modal__close-button {
+  opacity: 0.5;
+}
+
 .modal__radio-button {
   margin: 0 8px 8px 0;
   accent-color: #000;
@@ -77,11 +81,16 @@
 }
 
 .modal__submit-button {
+  cursor: pointer;
   margin-top: 16px;
-  background-color: rgb(0, 0, 0, 0.3);
+  background-color: rgb(0, 0, 0);
   border: none;
   color: #fff;
   width: 124px;
   height: 36px;
   border-radius: 4px;
+}
+
+.modal__submit-button:hover {
+  opacity: 0.3;
 }

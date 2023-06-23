@@ -6,6 +6,10 @@ import ItemCard from "./ItemCard";
 import "../blocks/ItemCard.css";
 
 const Profile = ({ clothingItems, onSelectCard, onCreateModal }) => {
+  // const handleCardClick = (item) => {
+  //   onSelectCard(item);
+  //   console.log("Selected item:", item);
+  // };
   return (
     <div className="profile">
       <div className="profile__sidebar">
@@ -15,8 +19,8 @@ const Profile = ({ clothingItems, onSelectCard, onCreateModal }) => {
         <ClothesSection openModal={onCreateModal} />
         <section className="profile__cards">
           <ul className="profile__cards-list main__card-items">
-            {clothingItems.map((item) => (
-              <ItemCard key={item.id} item={item} onSelectCard={onSelectCard} />
+            {clothingItems.map((card) => (
+              <ItemCard key={card.id} item={card} onSelectCard={onSelectCard} />
             ))}
           </ul>
         </section>

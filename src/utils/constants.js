@@ -11,7 +11,7 @@ import nightRainy from "../images/night/night-rainy.svg";
 import nightSnowy from "../images/night/night-snowy.svg";
 import nightStormy from "../images/night/night-stormy.svg";
 
-export const WeatherOptions = [
+export const weatherOptions = [
   { url: daySunny, day: true, type: "sunny" },
   { url: dayCloudy, day: true, type: "cloudy" },
   { url: dayFoggy, day: true, type: "foggy" },

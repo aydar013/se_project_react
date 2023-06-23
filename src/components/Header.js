@@ -1,5 +1,5 @@
 import "../blocks/Header.css";
-import { currentDate } from "../utils/components";
+import { currentDate } from "../utils/constants";
 import logoImage from "../images/logo.svg";
 import avatarImage from "../images/avatar.svg";
 import ToggleSwitch from "./ToggleSwitch";
