@@ -5,15 +5,15 @@ import "../blocks/Main.css";
 import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext";
 import { temperature } from "../utils/weatherApi";
 
-function Main({ weatherTemp, onSelectCard, clothingItems }) {
+function Main({ weatherTemp, onSelectCard, cards, onCardLike }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
 
   const getWeatherType = () => {
-    if (weatherTemp >= 86) {
+    if (weatherTemp?.temp?.main >= 86) {
       return "hot";
-    } else if (weatherTemp >= 66 && weatherTemp <= 85) {
+    } else if (weatherTemp?.temp?.main >= 66 && weatherTemp?.temp?.main <= 85) {
       return "warm";
-    } else if (weatherTemp <= 65) {
+    } else if (weatherTemp?.temp?.main <= 65) {
       return "cold";
     }
   };
@@ -23,9 +23,11 @@ function Main({ weatherTemp, onSelectCard, clothingItems }) {
   const currentTemperature = temperature(weatherTemp);
   const currentTemperatureString = currentTemperature[currentTemperatureUnit];
 
-  const filteredCard = clothingItems.filter((item) => {
-    return item.weather.toLowerCase() === weatherType;
-  });
+  // const filteredCard = cards.filter((item) => {
+  //   return item.weather?.toLowerCase() === weatherType;
+  // });
+
+  const filteredCard = cards;
 
   return (
     <main className="main">
@@ -36,9 +38,17 @@ function Main({ weatherTemp, onSelectCard, clothingItems }) {
             Today is {currentTemperatureString} / You may want to wear:
           </p>
           <div className="main__card-items">
-            {filteredCard.map((item, i) => (
-              <ItemCard item={item} key={i} onSelectCard={onSelectCard} />
-            ))}
+            {Array.isArray(filteredCard) &&
+              filteredCard.map((card) => {
+                return (
+                  <ItemCard
+                    item={card}
+                    key={card._id}
+                    onSelectCard={onSelectCard}
+                    onCardLike={onCardLike}
+                  />
+                );
+              })}
           </div>
         </div>
       </section>

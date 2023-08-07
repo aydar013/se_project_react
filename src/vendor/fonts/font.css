@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Familjen Grotesk";
+  font-weight: 700;
+  src: url(../fonts/static/FamiljenGrotesk-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Familjen Grotesk";
+  font-weight: 500;
+  src: url(../fonts/static/FamiljenGrotesk-Medium.ttf);
+}

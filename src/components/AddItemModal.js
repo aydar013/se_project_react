@@ -2,45 +2,45 @@ import React, { useState, useEffect } from "react";
 import ModalWithForm from "./ModalWithForm";
 
 const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
-  const [name, setName] = useState("");
-  const [link, setLink] = useState("");
-  const [weather, setWeather] = useState("");
+  const [itemName, setItemName] = useState("");
+  const [imageLink, setImageLink] = useState("");
+  const [weatherType, setWeatherType] = useState("");
 
   useEffect(() => {
     if (isOpen) {
-      setName("");
-      setLink("");
-      setWeather("");
+      setItemName("");
+      setImageLink("");
+      setWeatherType("");
     }
   }, [isOpen]);
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
+  const handleItemNameChange = (e) => {
+    setItemName(e.target.value);
   };
 
-  const handleLinkChange = (e) => {
-    setLink(e.target.value);
+  const handleItemImageLinkChange = (e) => {
+    setImageLink(e.target.value);
   };
 
-  const handleWeatherChange = (e) => {
-    setWeather(e.target.value);
+  const handleWeatherTypeChange = (e) => {
+    setWeatherType(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, link, weather });
+    onAddItem({ itemName, imageLink, weatherType });
   };
 
   return (
     <ModalWithForm
       buttonText="Add garment"
       title="New garment"
-      name="add"
+      name="add new item"
       onClose={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >
-      <label className="modal__name-flex">
+      <label className="modal__label-flex">
         Name
         <input
           className="modal__input"
@@ -49,21 +49,21 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
           minLength="1"
           maxLength="30"
           placeholder="Name"
-          value={name}
-          onChange={handleNameChange}
+          value={itemName}
+          onChange={handleItemNameChange}
         />
       </label>
-      <label className="modal__image-flex">
+      <label className="modal__label-flex">
         Image
         <input
           className="modal__input"
           type="url"
           name="link"
           minLength="1"
-          maxLength="200"
+          maxLength="400"
           placeholder="Image URL"
-          value={link}
-          onChange={handleLinkChange}
+          value={imageLink}
+          onChange={handleItemImageLinkChange}
         />
       </label>
       <label className="modal__radio-buttons">
@@ -76,7 +76,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
               id="hot"
               value="hot"
               name="weather"
-              onChange={handleWeatherChange}
+              onChange={handleWeatherTypeChange}
             />
             <label className="modal__radio-button_label">Hot</label>
           </div>
@@ -87,7 +87,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
               id="warm"
               name="weather"
               value="warm"
-              onChange={handleWeatherChange}
+              onChange={handleWeatherTypeChange}
             />
             <label className="modal__radio-button_label">Warm</label>
           </div>
@@ -98,7 +98,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
               id="cold"
               value="cold"
               name="weather"
-              onChange={handleWeatherChange}
+              onChange={handleWeatherTypeChange}
             />
             <label className="modal__radio-button_label">Cold</label>
           </div>

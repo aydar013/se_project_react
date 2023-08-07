@@ -2,29 +2,24 @@ import "../blocks/Profile.css";
 import React from "react";
 import SideBar from "./SideBar";
 import ClothesSection from "./ClothesSection";
-import ItemCard from "./ItemCard";
 import "../blocks/ItemCard.css";
 
-const Profile = ({ clothingItems, onSelectCard, onCreateModal }) => {
-  // const handleCardClick = (item) => {
-  //   onSelectCard(item);
-  //   console.log("Selected item:", item);
-  // };
+const Profile = ({
+  cards,
+  onSelectCard,
+  onCreateModal,
+  onEditProfile,
+  onCardLike,
+}) => {
   return (
     <div className="profile">
-      <div className="profile__sidebar">
-        <SideBar />
-      </div>
-      <div className="profile__clothes-section">
-        <ClothesSection openModal={onCreateModal} />
-        <section className="profile__cards">
-          <ul className="profile__cards-list main__card-items">
-            {clothingItems.map((card, i) => (
-              <ItemCard key={i} item={card} onSelectCard={onSelectCard} />
-            ))}
-          </ul>
-        </section>
-      </div>
+      <SideBar handleEditProfile={onEditProfile} />
+      <ClothesSection
+        cards={cards}
+        onCreateModal={onCreateModal}
+        onSelectCard={onSelectCard}
+        onCardLike={onCardLike}
+      />
     </div>
   );
 };
