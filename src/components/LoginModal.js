@@ -52,7 +52,7 @@ const LoginModal = ({
       buttonText="Log in"
       title="Log in"
       name="login"
-      onClose={handleCloseModal}
+      handleCloseModal={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >

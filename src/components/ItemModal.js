@@ -1,11 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "../blocks/ItemModal.css";
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
-const ItemModal = ({ selectedCard, onClose, onOpenDeleteModal }) => {
+const ItemModal = ({
+  selectedCard,
+  handleCloseModal,
+  onOpenDeleteModal,
+  isOpen,
+}) => {
   const currentUser = useContext(CurrentUserContext);
 
   const isOwn = selectedCard.owner === currentUser?.data?._id;
+
+  useEffect(() => {
+    const handleEscKey = (e) => {
+      if (e.key === "Escape" && isOpen) {
+        handleCloseModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscKey);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscKey);
+    };
+  }, [isOpen]);
 
   return (
     <div className="modal">
@@ -13,7 +32,7 @@ const ItemModal = ({ selectedCard, onClose, onOpenDeleteModal }) => {
         <button
           className="modal__close-button modal__card-close"
           type="button"
-          onClick={onClose}
+          onClick={handleCloseModal}
         />
         <img
           className="modal__card-image"

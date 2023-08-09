@@ -10,7 +10,6 @@ import {
   BrowserRouter,
   Switch,
   Route,
-  useHistory,
 } from "react-router-dom/cjs/react-router-dom";
 import AddItemModal from "./AddItemModal";
 import Profile from "./Profile";
@@ -84,7 +83,7 @@ function App() {
     deleteClothingItem(selectedCard._id, token)
       .then(() => {
         const filteredCard = cards.filter(
-          (card) => card.id !== selectedCard._id
+          (card) => card._id !== selectedCard._id
         );
         setCards(filteredCard);
         handleCloseModal();
@@ -285,8 +284,9 @@ function App() {
             {activeModal === "preview" && (
               <ItemModal
                 selectedCard={selectedCard}
-                onClose={handleCloseModal}
+                handleCloseModal={handleCloseModal}
                 onOpenDeleteModal={openDeleteModal}
+                isOpen={activeModal === "preview"}
               />
             )}
             {deleteCardModal && (
@@ -295,6 +295,7 @@ function App() {
                   setDeleteCardModal(false);
                 }}
                 handleDelete={handleDeleteItem}
+                isOpen={deleteCardModal}
               />
             )}
             {userRegisterModal && (

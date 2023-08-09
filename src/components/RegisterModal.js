@@ -63,7 +63,7 @@ const RegisterModal = ({
       buttonText="Next"
       title="Sign up"
       name="Register"
-      onClose={handleCloseModal}
+      handleCloseModal={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >

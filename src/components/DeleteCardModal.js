@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../blocks/DeleteCardModal.css";
 
-const DeleteCardModal = ({ handleCloseModal, handleDelete }) => {
+const DeleteCardModal = ({ handleCloseModal, handleDelete, isOpen }) => {
+  useEffect(() => {
+    const handleEscKey = (e) => {
+      if (e.key === "Escape" && isOpen) {
+        handleCloseModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscKey);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscKey);
+    };
+  }, [isOpen]);
+
   return (
     <div className="modal">
       <div className="modal__content modal__content-delete">

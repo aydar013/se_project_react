@@ -1,12 +1,10 @@
 .clothes {
   font-family: "Cabinet Grotesk";
-  /* display: flex; */
   gap: 20px;
   justify-content: flex-start;
   padding: 33px 0 0 0;
   font-size: 20px;
   font-weight: 700;
-  height: 25px;
   margin-right: 40px;
 }
 

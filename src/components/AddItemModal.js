@@ -7,6 +7,20 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
   const [weatherType, setWeatherType] = useState("");
 
   useEffect(() => {
+    const handleEscKey = (e) => {
+      if (e.key === "Escape" && isOpen) {
+        handleCloseModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscKey);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscKey);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
     if (isOpen) {
       setItemName("");
       setImageLink("");
@@ -41,7 +55,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
       buttonText="Add garment"
       title="New garment"
       name="add new item"
-      onClose={handleCloseModal}
+      handleCloseModal={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >

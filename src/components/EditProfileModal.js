@@ -12,6 +12,20 @@ const EditProfileModal = ({ isOpen, handleCloseModal, onEditProfile }) => {
   const [userAvatar, setUserAvatar] = useState("");
 
   useEffect(() => {
+    const handleEscKey = (e) => {
+      if (e.key === "Escape" && isOpen) {
+        handleCloseModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscKey);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscKey);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
     setUserName(currentUserName);
     setUserAvatar(currentUserAvatar);
   }, [currentUserName, currentUserAvatar]);
@@ -38,7 +52,7 @@ const EditProfileModal = ({ isOpen, handleCloseModal, onEditProfile }) => {
       buttonText="Save changes"
       title="Change Profile Data"
       name="Edit user info"
-      onClose={handleCloseModal}
+      handleCloseModal={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >
