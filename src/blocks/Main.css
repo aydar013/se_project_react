@@ -1,5 +1,5 @@
 .main {
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
 .main__description {
@@ -9,6 +9,7 @@
 .main__card-items {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: 100%;
   padding: 0;
   margin-top: 34px;
   gap: 17px;

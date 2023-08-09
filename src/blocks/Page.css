@@ -7,4 +7,6 @@
   width: 100%;
   margin: 0 auto 24px;
   padding-right: 20px;
+  position: relative;
+  height: 100%;
 }

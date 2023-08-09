@@ -15,7 +15,6 @@
 .header__logo {
   display: flex;
   padding: 0;
-  /* margin-left: 40px; */
   gap: 24px;
   align-items: center;
 }
@@ -23,18 +22,33 @@
 .header__name {
   cursor: pointer;
   text-decoration: none;
+  color: #000;
 }
 
+.header__name:link {
+  opacity: 0.5;
+}
 .header__name:hover {
   opacity: 0.5;
 }
 
+.header__user-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.header__avatar-picture {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
 .header__avatar {
   display: flex;
   padding: 0;
-  /* margin-right: 40px; */
   align-items: center;
   gap: 12px;
+  border-radius: 50%;
 }
 
 .header__logo-picture {

@@ -7,13 +7,12 @@ import { temperature } from "../utils/weatherApi";
 
 function Main({ weatherTemp, onSelectCard, cards, onCardLike }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-
   const getWeatherType = () => {
-    if (weatherTemp?.temp?.main >= 86) {
+    if (weatherTemp >= 86) {
       return "hot";
-    } else if (weatherTemp?.temp?.main >= 66 && weatherTemp?.temp?.main <= 85) {
+    } else if (weatherTemp >= 66 && weatherTemp <= 85) {
       return "warm";
-    } else if (weatherTemp?.temp?.main <= 65) {
+    } else if (weatherTemp <= 65) {
       return "cold";
     }
   };
@@ -23,11 +22,9 @@ function Main({ weatherTemp, onSelectCard, cards, onCardLike }) {
   const currentTemperature = temperature(weatherTemp);
   const currentTemperatureString = currentTemperature[currentTemperatureUnit];
 
-  // const filteredCard = cards.filter((item) => {
-  //   return item.weather?.toLowerCase() === weatherType;
-  // });
-
-  const filteredCard = cards;
+  const filteredCard = cards?.filter((item) => {
+    return item.weather?.toLowerCase() === weatherType;
+  });
 
   return (
     <main className="main">

@@ -56,7 +56,6 @@ const RegisterModal = ({
     newUser.name = userName;
     newUser.avatar = userAvatarLink;
     onRegisterUser(newUser);
-    console.log(newUser);
   }
 
   return (

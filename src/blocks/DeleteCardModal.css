@@ -1,0 +1,22 @@
+.modal__content-delete {
+  text-align: center;
+}
+
+.modal__delete-text {
+  margin: 0;
+}
+
+.modal__delete-text:first-child {
+  margin-top: 32px;
+}
+
+.modal__delete-yes {
+  margin-top: 40px;
+  color: #ff4d00;
+  cursor: pointer;
+}
+
+.modal__delete-cancel {
+  cursor: pointer;
+  margin-top: 24px;
+}

@@ -1,8 +1,4 @@
-// import { checkResponse } from "./checkResponse";
-
-const latitude = 34.14949;
-const longitude = -118.439957;
-const APIkey = "393f2cb37617f240cffcb2c6fc010659";
+import { latitude, longitude, APIkey } from "./constants";
 
 const processServerResponse = (res) => {
   if (res.ok) {

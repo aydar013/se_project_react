@@ -1,7 +1,6 @@
 import "../blocks/Header.css";
 import { currentDate } from "../utils/constants";
 import logoImage from "../images/logo.svg";
-import avatarImage from "../images/avatar.svg";
 import ToggleSwitch from "./ToggleSwitch";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import CurrentUserContext from "../contexts/CurrentUserContext";
@@ -46,7 +45,7 @@ const Header = ({
               + Add clothes
             </button>
 
-            <Link to="/profile">
+            <Link to="/profile" className="header__user-info">
               <div className="header__name">{currentUserName}</div>
               {currentUserAvatar ? (
                 <img

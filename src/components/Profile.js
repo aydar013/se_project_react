@@ -10,17 +10,23 @@ const Profile = ({
   onCreateModal,
   onEditProfile,
   onCardLike,
+  handleLogOut,
 }) => {
   return (
-    <div className="profile">
-      <SideBar handleEditProfile={onEditProfile} />
-      <ClothesSection
-        cards={cards}
-        onCreateModal={onCreateModal}
-        onSelectCard={onSelectCard}
-        onCardLike={onCardLike}
-      />
-    </div>
+    <section className="profile__section">
+      <div className="profile">
+        <SideBar
+          handleEditProfile={onEditProfile}
+          handleLogOut={handleLogOut}
+        />
+        <ClothesSection
+          cards={cards}
+          onCreateModal={onCreateModal}
+          onSelectCard={onSelectCard}
+          onCardLike={onCardLike}
+        />
+      </div>
+    </section>
   );
 };
 

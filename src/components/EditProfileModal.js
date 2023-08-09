@@ -37,8 +37,8 @@ const EditProfileModal = ({ isOpen, handleCloseModal, onEditProfile }) => {
     <ModalWithForm
       buttonText="Save changes"
       title="Change Profile Data"
+      name="Edit user info"
       onClose={handleCloseModal}
-      name="user-profile-edit"
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >
@@ -56,12 +56,12 @@ const EditProfileModal = ({ isOpen, handleCloseModal, onEditProfile }) => {
           required
         />
       </label>
-      <label className="modal__label">
+      <label className="modal__label-flex">
         Avatar
         <input
           className="modal__input"
           type="url"
-          name="link"
+          name="imageUrl"
           placeholder="Avatar URL"
           value={userAvatar}
           onChange={handleUserAvatarChange}

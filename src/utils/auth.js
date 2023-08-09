@@ -2,15 +2,16 @@ import { checkResponse } from "./checkResponse";
 
 const baseUrl = "http://localhost:3001";
 
-export const register = (name, avatar, password, email) => {
+export const register = ({ name, avatar, email, password }) => {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, avatar, password, email }),
-  }).then(checkResponse);
-  // .catch((err) => console.log(err));
+    body: JSON.stringify({ name, avatar, email, password }),
+  })
+    .then(checkResponse)
+    .catch((err) => console.log(err));
 };
 
 export const signIn = (email, password) => {
@@ -20,8 +21,9 @@ export const signIn = (email, password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then(checkResponse);
-  // .catch((err) => console.log(err));
+  })
+    .then(checkResponse)
+    .catch((err) => console.log(err));
 };
 
 export const checkToken = (token) => {

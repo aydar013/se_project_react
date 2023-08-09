@@ -1,6 +1,7 @@
 .card {
   display: flex;
   justify-content: center;
+  flex-direction: row;
   margin: 0;
   max-width: 328px;
   max-height: 328px;
@@ -10,6 +11,8 @@
 }
 
 .card__image {
+  width: 323px;
+  height: 326px;
   max-width: 100%;
   max-height: 100%;
   border-radius: 15px;
@@ -17,19 +20,35 @@
 }
 
 .card__name-wrapper {
+  position: absolute;
+  margin-top: 18px;
+  top: 16px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 160px;
+  min-height: 24px;
   display: flex;
   justify-content: center;
-  min-width: 73px;
-  min-height: 24px;
-  background: white;
-  position: absolute;
-  top: 16px;
-  border-radius: 4px;
 }
 
 .card__name {
-  margin-top: 12px;
-  font-size: 16px;
-  line-height: 1.2px;
+  padding: 2px 12px;
   color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  line-height: 1.2;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.card__like {
+  cursor: pointer;
+  width: 18px;
+  height: 15px;
+  background-color: none;
+  margin: auto 10px;
+}
+
+.card__like:hover {
+  cursor: pointer;
+  opacity: 0.6;
 }

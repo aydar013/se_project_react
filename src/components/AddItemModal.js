@@ -28,7 +28,12 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ itemName, imageLink, weatherType });
+
+    const card = {};
+    card.name = itemName;
+    card.imageUrl = imageLink;
+    card.weather = weatherType;
+    onAddItem(card);
   };
 
   return (

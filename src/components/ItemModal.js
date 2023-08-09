@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../blocks/ItemModal.css";
+import CurrentUserContext from "../contexts/CurrentUserContext";
 
-const ItemModal = ({ selectedCard, onClose, onDelete }) => {
+const ItemModal = ({ selectedCard, onClose, onOpenDeleteModal }) => {
+  const currentUser = useContext(CurrentUserContext);
+
+  const isOwn = selectedCard.owner === currentUser?.data?._id;
+
   return (
     <div className="modal">
       <div className="modal__container">
@@ -23,12 +28,15 @@ const ItemModal = ({ selectedCard, onClose, onDelete }) => {
             </div>
           </div>
           <div>
-            <div
-              onClick={() => onDelete(selectedCard)}
-              className="modal__card-delete"
-            >
-              Delete item
-            </div>
+            {isOwn ? (
+              <button
+                type="button"
+                onClick={onOpenDeleteModal}
+                className="modal__card-delete"
+              >
+                Delete item
+              </button>
+            ) : null}
           </div>
         </div>
       </div>
