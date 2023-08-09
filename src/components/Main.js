@@ -23,7 +23,7 @@ function Main({ weatherTemp, onSelectCard, cards, onCardLike }) {
   const currentTemperatureString = currentTemperature[currentTemperatureUnit];
 
   const filteredCard = cards?.filter((item) => {
-    return item.weather?.toLowerCase() === weatherType;
+    return item?.weather.toLowerCase() === weatherType;
   });
 
   return (
@@ -35,17 +35,16 @@ function Main({ weatherTemp, onSelectCard, cards, onCardLike }) {
             Today is {currentTemperatureString} / You may want to wear:
           </p>
           <div className="main__card-items">
-            {Array.isArray(filteredCard) &&
-              filteredCard.map((card) => {
-                return (
-                  <ItemCard
-                    item={card}
-                    key={card._id}
-                    onSelectCard={onSelectCard}
-                    onCardLike={onCardLike}
-                  />
-                );
-              })}
+            {filteredCard.map((card) => {
+              return (
+                <ItemCard
+                  item={card}
+                  key={card._id || card.id}
+                  onSelectCard={onSelectCard}
+                  onCardLike={onCardLike}
+                />
+              );
+            })}
           </div>
         </div>
       </section>

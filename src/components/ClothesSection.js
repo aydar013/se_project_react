@@ -5,6 +5,7 @@ import ItemCard from "./ItemCard";
 
 const ClothesSection = ({ cards, onCreateModal, onSelectCard, onCardLike }) => {
   const currentUser = useContext(CurrentUserContext);
+
   return (
     <div className="clothes">
       <div className="clothes__container">
