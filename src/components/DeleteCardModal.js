@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import "../blocks/DeleteCardModal.css";
 
-const DeleteCardModal = ({ handleCloseModal, handleDelete, isOpen }) => {
+const DeleteCardModal = ({
+  handleCloseModal,
+  handleDelete,
+  isOpen,
+  isLoading,
+}) => {
   useEffect(() => {
     const handleEscKey = (e) => {
       if (e.key === "Escape" && isOpen) {
@@ -31,7 +36,7 @@ const DeleteCardModal = ({ handleCloseModal, handleDelete, isOpen }) => {
           <p className="modal__delete-text">This action is irreversable.</p>
         </div>
         <p className="modal__delete-yes" onClick={handleDelete}>
-          Yes, delete item
+          {isLoading ? "Saving..." : "Yes, delete item"}
         </p>
         <p className="modal__delete-cancel" onClick={handleCloseModal}>
           Cancel

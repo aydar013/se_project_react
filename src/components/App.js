@@ -43,6 +43,8 @@ function App() {
   const [deleteCardModal, setDeleteCardModal] = useState(false);
   const [userEditProfileModal, setUserEditProfileModal] = useState(false);
   const [cards, setCards] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -80,6 +82,7 @@ function App() {
   };
 
   const handleDeleteItem = () => {
+    setIsDeleting(true);
     deleteClothingItem(selectedCard._id, token)
       .then(() => {
         const filteredCard = cards.filter(
@@ -91,6 +94,9 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setIsDeleting(false);
       });
   };
 
@@ -145,6 +151,7 @@ function App() {
   };
 
   const handleEditProfile = ({ name, avatar }) => {
+    setIsLoading(true);
     editProfile({ name, avatar, token })
       .then((res) => {
         return res;
@@ -156,6 +163,9 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -218,6 +228,7 @@ function App() {
   }, []);
 
   useEffect(() => {
+    setIsLoading(true);
     const storedToken = localStorage.getItem("jwt");
     if (storedToken) {
       setToken(storedToken);
@@ -235,6 +246,7 @@ function App() {
           console.log(err);
         });
     }
+    setIsLoading(false);
   }, []);
 
   return (
@@ -251,78 +263,85 @@ function App() {
               isLoggedIn={isLoggedIn}
               handleLogin={openLoginModal}
             />
-            <Switch>
-              <ProtectedRoute path="/profile" userLoggedIn={isLoggedIn}>
-                <Profile
-                  cards={cards}
-                  onSelectCard={handleSelectedCard}
-                  onCreateModal={handleCreateModal}
-                  onEditProfile={openEditProfileModal}
-                  userLoggedIn={isLoggedIn}
-                  onCardLike={handleLikeClick}
-                  handleLogOut={handleLogout}
-                />
-              </ProtectedRoute>
-              <Route path="/">
-                <Main
-                  cards={cards}
-                  weatherTemp={temp}
-                  onSelectCard={handleSelectedCard}
-                  onCardLike={handleLikeClick}
-                  userLoggedIn={isLoggedIn}
-                />
-              </Route>
-            </Switch>
-            <Footer />
-            {activeModal === "create" && (
-              <AddItemModal
-                handleCloseModal={handleCloseModal}
-                onAddItem={handleAddItemSubmit}
-                isOpen={activeModal === "create"}
-              />
-            )}
-            {activeModal === "preview" && (
-              <ItemModal
-                selectedCard={selectedCard}
-                handleCloseModal={handleCloseModal}
-                onOpenDeleteModal={openDeleteModal}
-                isOpen={activeModal === "preview"}
-              />
-            )}
-            {deleteCardModal && (
-              <DeleteCardModal
-                handleCloseModal={() => {
-                  setDeleteCardModal(false);
-                }}
-                handleDelete={handleDeleteItem}
-                isOpen={deleteCardModal}
-              />
-            )}
-            {userRegisterModal && (
-              <RegisterModal
-                isOpen={userRegisterModal}
-                onRegisterUser={handleRegister}
-                handleCloseModal={() => {
-                  setUserRegisterModal(false);
-                }}
-                switchToLoginModal={() => {
-                  setUserLoginModal(true);
-                  setUserRegisterModal(false);
-                }}
-              />
-            )}
-            {userLoginModal && (
-              <LoginModal
-                isOpen={userLoginModal}
-                onLoginUser={handleLogin}
-                handleCloseModal={() => {
-                  setUserLoginModal(false);
-                }}
-                switchToRegisterModal={() => {
-                  setUserLoginModal(false);
-                  setUserRegisterModal(true);
-                }}
-              />
+            {isLoading ? (
+              <div>Loading...</div>
+            ) : (
+              <>
+                <Switch>
+                  <ProtectedRoute path="/profile" userLoggedIn={isLoggedIn}>
+                    <Profile
+                      cards={cards}
+                      onSelectCard={handleSelectedCard}
+                      onCreateModal={handleCreateModal}
+                      onEditProfile={openEditProfileModal}
+                      userLoggedIn={isLoggedIn}
+                      onCardLike={handleLikeClick}
+                      handleLogOut={handleLogout}
+                    />
+                  </ProtectedRoute>
+                  <Route path="/">
+                    <Main
+                      cards={cards}
+                      weatherTemp={temp}
+                      onSelectCard={handleSelectedCard}
+                      onCardLike={handleLikeClick}
+                      userLoggedIn={isLoggedIn}
+                    />
+                  </Route>
+                </Switch>
+                <Footer />
+                {activeModal === "create" && (
+                  <AddItemModal
+                    handleCloseModal={handleCloseModal}
+                    onAddItem={handleAddItemSubmit}
+                    isOpen={activeModal === "create"}
+                  />
+                )}
+                {activeModal === "preview" && (
+                  <ItemModal
+                    selectedCard={selectedCard}
+                    handleCloseModal={handleCloseModal}
+                    onOpenDeleteModal={openDeleteModal}
+                    isOpen={activeModal === "preview"}
+                  />
+                )}
+                {deleteCardModal && (
+                  <DeleteCardModal
+                    handleCloseModal={() => {
+                      setDeleteCardModal(false);
+                    }}
+                    handleDelete={handleDeleteItem}
+                    isOpen={deleteCardModal}
+                    isLoading={isDeleting}
+                  />
+                )}
+                {userRegisterModal && (
+                  <RegisterModal
+                    isOpen={userRegisterModal}
+                    onRegisterUser={handleRegister}
+                    handleCloseModal={() => {
+                      setUserRegisterModal(false);
+                    }}
+                    switchToLoginModal={() => {
+                      setUserLoginModal(true);
+                      setUserRegisterModal(false);
+                    }}
+                  />
+                )}
+                {userLoginModal && (
+                  <LoginModal
+                    isOpen={userLoginModal}
+                    onLoginUser={handleLogin}
+                    handleCloseModal={() => {
+                      setUserLoginModal(false);
+                    }}
+                    switchToRegisterModal={() => {
+                      setUserLoginModal(false);
+                      setUserRegisterModal(true);
+                    }}
+                  />
+                )}
+              </>
             )}
             {userEditProfileModal && (
               <EditProfileModal
