@@ -2,7 +2,7 @@ import { checkResponse } from "./checkResponse";
 
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://www.wtwr.servernux.com"
+    ? "https://api.wtwr.servernux.com"
     : "http://localhost:3001";
 
 export const register = ({ name, avatar, email, password }) => {
