@@ -231,16 +231,10 @@ function App() {
     setIsLoading(true);
     const storedToken = localStorage.getItem("jwt");
     if (storedToken) {
-      setToken(storedToken);
       checkToken(storedToken)
-        .then((res) => {
-          if (res) {
-            setIsLoggedIn(true);
-          }
-          return res;
-        })
         .then((userData) => {
           setCurrentUser(userData);
+          setIsLoggedIn(true);
         })
         .catch((err) => {
           console.log(err);
