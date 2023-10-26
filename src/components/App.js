@@ -233,8 +233,13 @@ function App() {
     if (storedToken) {
       setToken(storedToken);
       checkToken(storedToken)
+        .then((res) => {
+          if (res) {
+            setIsLoggedIn(true);
+          }
+          return res;
+        })
         .then((userData) => {
-          setIsLoggedIn(true);
           setCurrentUser(userData);
         })
         .catch((err) => {
