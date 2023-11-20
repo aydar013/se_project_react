@@ -1,4 +1,7 @@
 # WTWR (What to Wear?)
+This is a node.js clothes application powered by Express that suggests clothing items created by the user!
+
+![Screenshot 2023-10-26 121959](https://github.com/aydar013/se_project_react/assets/121465617/9ba011b6-3b55-40d0-8a20-621e45e4027c)
 
 ## About the project
 
